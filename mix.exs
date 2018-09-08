@@ -20,7 +20,7 @@ defmodule Shopiex.Mixfile do
   end
 
   def application do
-    [applications: [:httpoison, :exjsx]]
+    []
   end
 
   defp deps do
