@@ -1,4 +1,8 @@
 # Shopiex
+
+[![Build Status](https://travis-ci.com/byjord/Shopiex.svg?branch=master)](https://travis-ci.com/byjord/Shopiex)
+[![Coverage Status](https://coveralls.io/repos/byjord/Shopiex/badge.svg?branch=master)](https://coveralls.io/github/byjord/Shopiex?branch=master)
+
 Simple elixir wrapper for the Shopify API.
 
 ## Status
