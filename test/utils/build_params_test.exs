@@ -29,6 +29,14 @@ defmodule Shopiex.BuildParamsTest do
 
       assert(build_and_join(options) == "limit=10000&highfive=true&namespace=sample")
     end
+
+    test "use list in option: namespace" do
+      options = [
+        namespace: ["sample", "asdf", "qwert"]
+      ]
+
+      assert(build_and_join(options) == "namespace=sample,asdf,qwert")
+    end
   end
 
 end
