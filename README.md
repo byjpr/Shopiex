@@ -18,8 +18,8 @@ end
 Fetching dependencies and running on elixir console:
 
 ```console
-mix deps.get
-iex -S mix
+$ mix deps.get
+$ iex -S mix
 ```
 
 
