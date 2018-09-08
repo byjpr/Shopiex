@@ -5,6 +5,24 @@
 
 Simple elixir wrapper for the Shopify API.
 
+## Quick Start
+
+Add Shopiex to your mix.exs. Currently only on GitHub:
+
+```elixir
+def deps do
+  [{:Shopiex, github: "https://github.com/byjord/Shopiex"}]
+end
+```
+
+Fetching dependencies and running on elixir console:
+
+```console
+mix deps.get
+iex -S mix
+```
+
+
 ## Endpoints
 
 - [ ] REST Admin API
