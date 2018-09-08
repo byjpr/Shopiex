@@ -7,7 +7,7 @@ Simple elixir wrapper for the Shopify API.
 	- [ ] Access
 		- [ ] AccessScope
 		- [ ] StorefrontAccessToken
-	- [ ] ~Analytics~
+	- ~Analytics~
 		- Not supported because ShopifyQL
 	- [ ] Billing
 		- [ ] UsageCharge
