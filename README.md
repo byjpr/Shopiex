@@ -23,7 +23,7 @@ $ iex -S mix
 ```
 
 
-## Endpoints
+## Supported Endpoints
 
 - [ ] REST Admin API
 	- [ ] Access
