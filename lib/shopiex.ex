@@ -15,40 +15,46 @@ defmodule Shopiex do
   end
 
   @doc false
+  @spec go(method :: :get, make :: nonempty_list(Shopiex.Typespec.make)) :: any()
   def go(:get, make) when is_list(make) do
     go_loop(:get, make)
   end
 
   @doc false
+  @spec go(method :: :post, make :: nonempty_list(Shopiex.Typespec.make)) :: any()
   def go(:post, make) when is_list(make) do
     go_loop(:post, make)
   end
 
-  @doc false
-  def go(:get, make), do: get_now(make)
+  @spec go(method :: :get, make :: Shopiex.Typespec.make) :: any()
+  def go(:get, {client, url}) do
+    Tesla.get(client, url)
+  end
 
-  @doc false
-  def go(:post, make), do: post_now(make)
+  @spec go(method :: :post, make :: Shopiex.Typespec.make) :: any()
+  def go(:post, {client, url, post_body}) do
+    Tesla.post(client, url, post_body)
+  end
 
   #
   # Private
   #
-
-  # Recursively step through each item in the list
-
-  defp get_now({client, url}) do
-    Tesla.get(client, url)
-  end
-
-  defp post_now({client, url, post_body}) do
-    Tesla.post(client, url, post_body)
-  end
-
+  @spec go_loop(
+    method :: :get | :post,
+    requests :: [],
+    accumulator :: [...]
+  ) :: any()
   defp go_loop(_method, [], accumulator), do: accumulator
 
-  defp go_loop(method, [head | tail], accumulator \\ []) do
+  @spec go_loop(
+    method :: :get | :post,
+    requests :: nonempty_list(make :: Shopiex.Typespec.make),
+    accumulator :: [...] | []
+  ) :: any()
+  defp go_loop(method, requests, accumulator \\ [])
+  defp go_loop(method, [head | tail], accumulator) do
     {:ok, new} = go(method, head)
     new_accumulator = [new] ++ accumulator
-    go_loop({method, tail}, new_accumulator)
+    go_loop(method, tail, new_accumulator)
   end
 end

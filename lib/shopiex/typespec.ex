@@ -2,7 +2,9 @@ defmodule Shopiex.Typespec do
   @moduledoc false
 
   @type client :: Tesla.Client.t()
+  @type request_method :: :get | :put | :post | :delete | :put | :patch | :head
   @type return_tuple :: {client, String.t()}
+  @type make :: {client :: Tesla.Client.t(), url :: String.t()}
 
   @type metafield :: [
     limit: non_neg_integer(),
