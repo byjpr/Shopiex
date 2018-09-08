@@ -5,7 +5,7 @@
 
 Simple elixir wrapper for the Shopify API.
 
-## Status
+## Endpoints
 
 - [ ] REST Admin API
 	- [ ] Access
