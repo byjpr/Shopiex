@@ -26,8 +26,6 @@ defmodule Shopiex.Mixfile do
   defp deps do
     [
       {:tesla, "1.0.0-beta.1"},
-      {:poison, "~> 3.1"},
-      {:jason, ">= 1.0.0"},
       {:earmark, "~> 0.2.1", only: :dev},
       {:ex_doc, "~> 0.11.4", only: :dev},
       {:inch_ex, "~> 0.5", only: :dev},
