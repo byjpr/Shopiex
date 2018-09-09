@@ -30,7 +30,8 @@ defmodule Shopiex.Meta do
   ) :: Shopiex.return_tuple
   def shop_metafields(client, options),
     do: {client, "/admin/metafields.json?#{flatten_options(options)}"}
-
+    
+  defp flatten_options([]), do: ""
   defp flatten_options(options),
     do: Shopiex.BuildParams.build_and_join(options)
 end
