@@ -19,10 +19,15 @@ defmodule Shopiex.Meta do
   @doc """
   Get shop details
   """
-  @spec shop_details(client :: Shopiex.client) :: Shopiex.return_tuple
+  @spec shop_details(
+    client :: Shopiex.client
+  ) :: Shopiex.return_tuple
   def shop_details(client), do: {client, "/admin/shop.json"}
 
-  @spec shop_metafields(client :: Shopiex.client, metafield_options) :: Shopiex.return_tuple
+  @spec shop_metafields(
+    client :: Shopiex.client,
+    options :: metafield_options
+  ) :: Shopiex.return_tuple
   def shop_metafields(client, options),
     do: {client, "/admin/metafields.json?#{flatten_options(options)}"}
 

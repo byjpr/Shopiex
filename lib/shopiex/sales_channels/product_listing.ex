@@ -23,7 +23,10 @@ defmodule Shopiex.SalesChannels.ProductListing do
   @doc """
   Retrieve a specific product listing that is published to your app
   """
-  @spec get_by_id(client :: Shopiex.client, non_neg_integer()) :: Shopiex.return_tuple
+  @spec get_by_id(
+    client :: Shopiex.client,
+    non_neg_integer()
+  ) :: Shopiex.return_tuple
   def get_by_id(client, product_listing_id),
     do:
       {client,
@@ -32,21 +35,29 @@ defmodule Shopiex.SalesChannels.ProductListing do
   @doc """
   Retrieve product listings that are published to your app.
   """
-  @spec get(client :: Shopiex.client(), listing_options()) :: Shopiex.return_tuple()
+  @spec get(
+    client :: Shopiex.client(),
+    listing_options()
+  ) :: Shopiex.return_tuple()
   def get(client, opts \\ []),
     do: {client, "/admin/product_listings.json#{flatten_options(opts)}"}
 
   @doc """
   Retrieve product_ids that are published to your app. Maximum 10,000 results per page.
   """
-  @spec get_ids(client :: Shopiex.client(), listing_ids_opts()) :: Shopiex.return_tuple()
+  @spec get_ids(
+    client :: Shopiex.client(),
+    listing_ids_opts()
+  ) :: Shopiex.return_tuple()
   def get_ids(client, opts \\ []),
     do: {client, "/admin/product_listings/product_ids.json#{flatten_options(opts)}"}
 
   @doc """
   Retrieve a count of products that are published to your app
   """
-  @spec get_count(client :: Shopiex.client()) :: Shopiex.return_tuple()
+  @spec get_count(
+    client :: Shopiex.client()
+  ) :: Shopiex.return_tuple()
   def get_count(client), do: {client, "/admin/product_listings/count.json"}
 
   defp flatten_options([]), do: ""

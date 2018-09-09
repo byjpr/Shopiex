@@ -11,7 +11,10 @@ defmodule Shopiex do
   @doc """
   Creates a Tesla client
   """
-  @spec client(shop :: String.t(), token :: String.t()) :: Tesla.Client.t()
+  @spec client(
+    shop :: String.t(),
+    token :: String.t()
+  ) :: Tesla.Client.t()
   def client(shop, token) do
     Tesla.build_client([
       {Tesla.Middleware.Headers,
@@ -24,7 +27,10 @@ defmodule Shopiex do
   @doc """
 		go/2 when make is list
 	"""
-  @spec go(method :: :get, make :: nonempty_list(Shopiex.make)) :: any()
+  @spec go(
+    method :: :get,
+    make :: nonempty_list(Shopiex.make)
+  ) :: any()
   def go(:get, make) when is_list(make) do
     go_loop(:get, make)
   end
@@ -32,7 +38,10 @@ defmodule Shopiex do
   @doc """
 		go/2 when make is list
 	"""
-  @spec go(method :: :post, make :: nonempty_list(Shopiex.make)) :: any()
+  @spec go(
+    method :: :post,
+    make :: nonempty_list(Shopiex.make)
+  ) :: any()
   def go(:post, make) when is_list(make) do
     go_loop(:post, make)
   end
@@ -40,7 +49,10 @@ defmodule Shopiex do
   @doc """
 		go/2
 	"""
-  @spec go(method :: :get, make :: Shopiex.make) :: any()
+  @spec go(
+    method :: :get,
+    make :: Shopiex.make
+  ) :: any()
   def go(:get, {client, url}) do
     Tesla.get(client, url)
   end
@@ -48,7 +60,10 @@ defmodule Shopiex do
 	@doc """
 		go/2
 	"""
-  @spec go(method :: :post, make :: Shopiex.make) :: any()
+  @spec go(
+    method :: :post,
+    make :: Shopiex.make
+  ) :: any()
   def go(:post, {client, url, post_body}) do
     Tesla.post(client, url, post_body)
   end

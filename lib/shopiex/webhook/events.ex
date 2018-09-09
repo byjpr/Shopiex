@@ -24,7 +24,10 @@ defmodule Shopiex.Events do
   @doc """
   Retrieve a list of all events for a shop
   """
-  @spec all(client :: Shopiex.client(), event_options :: events_options()) :: Shopiex.return_tuple()
+  @spec all(
+    client :: Shopiex.client(),
+    event_options :: events_options()
+  ) :: Shopiex.return_tuple()
   def all(client, options) do
     {client, "/admin/events.json#{flatten_options(options)}", %{format: "json"}}
   end
@@ -32,7 +35,11 @@ defmodule Shopiex.Events do
   @doc """
   Retrieve all events from a specific product
   """
-  @spec product_events(client :: Shopiex.client(), product_id :: String.t(), event_options :: events_options()) :: Shopiex.return_tuple()
+  @spec product_events(
+    client :: Shopiex.client(),
+    product_id :: String.t(),
+    event_options :: events_options()
+  ) :: Shopiex.return_tuple()
   def product_events(client, product_id, options) do
     {client, "/admin/products/#{product_id}/events.json#{flatten_options(options)}", %{format: "json"}}
   end
@@ -40,7 +47,11 @@ defmodule Shopiex.Events do
   @doc """
   Retrieve a list of all events from a specific order
   """
-  @spec order_events(client :: Shopiex.client(), order_id :: String.t(), event_options :: events_options()) :: Shopiex.return_tuple()
+  @spec order_events(
+    client :: Shopiex.client(),
+    order_id :: String.t(),
+    event_options :: events_options()
+  ) :: Shopiex.return_tuple()
   def order_events(client, order_id, options) do
     {client, "/admin/order/#{order_id}/events.json#{flatten_options(options)}", %{format: "json"}}
   end
