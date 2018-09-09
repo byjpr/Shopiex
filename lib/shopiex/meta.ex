@@ -3,7 +3,7 @@ defmodule Shopiex.Meta do
   Access a store's general settings and information as configured by the merchant in their Shopify admin.
   """
 
-  @type metafield :: [
+  @type metafield_options :: [
     limit: non_neg_integer(),
     since_id: non_neg_integer(),
     created_at_min: String.t(),
@@ -22,7 +22,7 @@ defmodule Shopiex.Meta do
   @spec shop_details(client :: Shopiex.client) :: Shopiex.return_tuple
   def shop_details(client), do: {client, "/admin/shop.json"}
 
-  @spec shop_metafields(client :: Shopiex.client, metafield) :: Shopiex.return_tuple
+  @spec shop_metafields(client :: Shopiex.client, metafield_options) :: Shopiex.return_tuple
   def shop_metafields(client, options),
     do: {client, "/admin/metafields.json?#{flatten_options(options)}"}
 
