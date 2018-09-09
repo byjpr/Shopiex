@@ -9,7 +9,7 @@ defmodule ShopiexTest do
       case env.url do
         "https://valid_store.myshopify.com/admin/shop.json" ->
           %Tesla.Env{status: 200, body: "ok"}
-        "https://valid_store.myshopify.com/admin/events.json?verb=verb&filter=filter" ->
+        "https://valid_store.myshopify.com/admin/webhooks.json" ->
           %Tesla.Env{status: 200, body: "ok"}
       end
     end
@@ -35,7 +35,7 @@ defmodule ShopiexTest do
 
   test "Post" do
     request = Shopiex.client("valid_store", "token")
-    |> Shopiex.Webhooks.create(verb: "verb", filter: "filter")
+    |> Shopiex.Webhooks.create(address: "address", topic: "topic")
 
     assert {:ok, %Tesla.Env{} = env} = Shopiex.go(:post, request)
     assert env.status == 200
@@ -44,7 +44,7 @@ defmodule ShopiexTest do
 
   test "Post is_list" do
     request = Shopiex.client("valid_store", "token")
-    |> Shopiex.Webhooks.create(verb: "verb", filter: "filter")
+    |> Shopiex.Webhooks.create(address: "address", topic: "topic")
 
     assert [%Tesla.Env{}, %Tesla.Env{}] = Shopiex.go(:post, [request, request])
   end

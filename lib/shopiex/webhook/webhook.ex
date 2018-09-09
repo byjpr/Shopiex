@@ -1,14 +1,19 @@
 defmodule Shopiex.Webhooks do
   @moduledoc """
-  Fetch event data or register webhooks to keep your app synced with the merchant store.
+  Register webhooks to keep your app synced with the merchant store.
   """
 
   @doc """
-  create/2
+  Create a new webhook subscription by specifying both an address and a topic
   """
-  def create(client, verb: verb, filter: filter) do
+  def create(client, [address: address, topic: topic] = _required_opts, opts \\ []) do
     {client,
-     "/admin/events.json?verb=#{verb}&filter=#{filter}",
-     %{format: "json"}}
+      "/admin/webhooks.json",
+      %{
+        address: address,
+        topic: topic,
+        format: "json"
+      }
+    }
   end
 end
