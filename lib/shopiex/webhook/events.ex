@@ -45,6 +45,7 @@ defmodule Shopiex.Events do
     {client, "/admin/order/#{order_id}/events.json#{flatten_options(options)}", %{format: "json"}}
   end
 
+  defp flatten_options([]), do: ""
   defp flatten_options(options),
     do: "?" <> Shopiex.BuildParams.build_and_join(options)
 end
