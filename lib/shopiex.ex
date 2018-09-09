@@ -8,19 +8,6 @@ defmodule Shopiex do
   @type return_tuple :: {client, String.t()}
   @type make :: {client :: Tesla.Client.t(), url :: String.t()}
 
-  @type metafield :: [
-    limit: non_neg_integer(),
-    since_id: non_neg_integer(),
-    created_at_min: String.t(),
-    created_at_max: String.t(),
-    updated_at_min: String.t(),
-    updated_at_max: String.t(),
-    namespace: String.t(),
-    key: String.t(),
-    value_type: String.t(),
-    fields: String.t()
-  ]
-
   @doc """
   Creates a Tesla client
   """
