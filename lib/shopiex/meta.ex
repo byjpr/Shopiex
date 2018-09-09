@@ -6,7 +6,7 @@ defmodule Shopiex.Meta do
   @doc """
   Get shop details
   """
-  @spec shop_details(client :: Shopiex.Typespec.client) :: Shopiex.Typespec.return_tuple
+  @spec shop_details(client :: Shopiex.client) :: Shopiex.return_tuple
   def shop_details(client), do: {client, "/admin/shop.json"}
 
   def shop_metafields(client, options),
