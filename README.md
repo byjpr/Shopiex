@@ -1,3 +1,7 @@
+Shopiex was a fun idea, but GraphQL is much better.
+
+-------
+
 # Shopiex
 
 [![Build Status](https://travis-ci.com/byjord/Shopiex.svg?branch=master)](https://travis-ci.com/byjord/Shopiex)
